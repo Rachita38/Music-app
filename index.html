@@ -10,6 +10,9 @@
 
 <body>
     <div class="wrapper">
+        
+<!--The welcome screen, which asks user information-->
+        
         <section class="welcome-screen">
                     
                     <h1> Welcome to Songify </h1>
@@ -26,6 +29,8 @@
             </div>
        
         </section>
+        
+<!-- The main screen, when the user logs in -->
         
         <div class="main hidden">
             <header>
@@ -50,18 +55,9 @@
     </div>
     
      <script src="jquery.js"> </script> 
+    
     <script>
-       
-        //JavaScript Code 
-        
-        /* var button = document.querySelector('.welcome-screen button'); 
-        
-         button.addEventListener('click', function() 
-        {
-          var name = document.querySelector('#name-input').value;
-             alert("Welcome " + name);
-        }); */
-        
+            
         //jQuery Code for validating user-name and displaying welcome message
         
             $('.welcome-screen button').on('click', function() {
@@ -92,17 +88,21 @@
 
             });
                 
-                //jQuery code to play the song, when the play-icon is clicked.
+                //jQuery code to play and pause the song, and pause-play icon chnages accordingly.
         
-               $('.play-icon').on('click',function() {
+               $('.play-icon').on('click',function(){
                                                          var song = document.querySelector('audio');
                                                           
                                 if(song.paused == true){
                                                             console.log('Playing');
+                                                            $('.play-icon').removeClass('fa-play');
+                                                            $('.play-icon').addClass('fa-pause');
                                                             song.play();
                                                        }
                                                   else {
                                                             console.log('Pausing');
+                                                            $('.play-icon').removeClass('fa-pause');
+                                                            $('.play-icon').addClass('fa-play');
                                                             song.pause();
                                                         }
                }); 
