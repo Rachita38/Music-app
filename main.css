@@ -13,10 +13,11 @@ body {
     font-size: 16px;
 }
 
-h1 {
+h1,h3 {
     border: 0;
     margin: 0;
-}
+    background-color:rgba(0,0,0,.3)
+    }
 
 .wrapper {
     height: 100%;
@@ -32,7 +33,7 @@ h1 {
     justify-content:center;
     align-items: center;
     background: url(guitar.jpeg) no-repeat center fixed;
-    color:aliceblue;
+    color:white;
     font-size:30px;
     font-weight:bolder;
 }
@@ -45,6 +46,7 @@ h1 {
     color: white;
     background-color: #1f1f1f;
 }
+    
 
 .main header {
     height: 80px;
@@ -64,7 +66,7 @@ h1 {
 
 .main .content {
     flex:1;
-    background-color: #1f1f1f;
+   background:url(guitar.jpeg) no-repeat center fixed;
 }
 
 .main footer {
@@ -85,7 +87,8 @@ h1 {
 }
 
 .right.floated {
-    float: right;
+    text-align: center;
+    font-size:40px;
 }
 
 .clickable {
@@ -135,6 +138,7 @@ h1 {
 .main .content {
     width: 90%;
     margin: 2rem auto;
+    background-color: silver;
 }
 
 .list-headers {
