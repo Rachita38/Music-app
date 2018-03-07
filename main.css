@@ -16,7 +16,8 @@ body {
 h1,h3 {
     border: 0;
     margin: 0;
-    background-color:rgba(0,0,0,.3)
+    background-color:rgba(0,0,0,.5);
+    color:whitesmoke;
     }
 
 .wrapper {
@@ -66,20 +67,22 @@ h1,h3 {
 
 .main .content {
     flex:1;
-   background:url(guitar.jpeg) no-repeat center fixed;
+   background:url('guitar2.jpeg') no-repeat center fixed;
+   background-size: cover;
 }
 
 .main footer {
     height: 80px;
-    background-color: #282828;
+    background-color:silver;
     padding-top: 1rem;
 }
 
 .player-buttons {
     display:flex;
-    font-size: 1.5rem;
+    font-size: 3.5rem;
     justify-content: center;
     align-items: center;
+    color:black;
 }
 
 .hidden {
@@ -89,6 +92,8 @@ h1,h3 {
 .right.floated {
     text-align: center;
     font-size:40px;
+    color:white;
+    background-color:dimgrey;
 }
 
 .clickable {
@@ -138,7 +143,7 @@ h1,h3 {
 .main .content {
     width: 90%;
     margin: 2rem auto;
-    background-color: silver;
+    background-color: gainsboro;
 }
 
 .list-headers {
