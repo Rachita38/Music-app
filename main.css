@@ -58,7 +58,10 @@ h1,h3 {
 
 
 #logout {
-    font-size: 1.5rem;
+    font-size:28px;
+    margin-left:590px;
+    font-family:fantasy;
+    border:1px solid black;
 }
 
 .play-all {
@@ -93,7 +96,7 @@ h1,h3 {
     text-align: center;
     font-size:40px;
     color:white;
-    background-color:dimgrey;
+    background-color:darkgoldenrod;
 }
 
 .clickable {

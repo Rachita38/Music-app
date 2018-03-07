@@ -31,7 +31,7 @@
             <header>
                 <div class="right floated user-name"> 
                 </div>
-                <button>Log-out</button>
+                <button id="logout">Log-out</button>
             </header>
             
             <section class="content">
@@ -81,6 +81,17 @@
             
            });
         
+        
+        //jQuery code to allow the user to log-out and go-back to the Welcome Screen
+            
+            $('#logout').on('click',function(){
+
+                $('.welcome-screen').removeClass('hidden');
+                $('.main').addClass('hidden');
+
+
+            });
+                
                 //jQuery code to play the song, when the play-icon is clicked.
         
                $('.play-icon').on('click',function() {
