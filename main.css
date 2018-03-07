@@ -21,7 +21,7 @@ h1 {
 .wrapper {
     height: 100%;
     width: 100%;
-    background-color: #BBB;
+    background-color:silver;
 }
 
 .welcome-screen {
@@ -29,8 +29,12 @@ h1 {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content:center;
     align-items: center;
+    background: url(guitar.jpeg) no-repeat center fixed;
+    color:aliceblue;
+    font-size:30px;
+    font-weight:bolder;
 }
 
 .main {
