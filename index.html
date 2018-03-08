@@ -61,6 +61,28 @@
      <script src="jquery.js"> </script> 
     
     <script>
+        
+        //Created a Function to play and pause the song, and the play/pause icon changes accordingly.
+        function togglesong(){
+             
+            var song = document.querySelector('audio');
+                                                          
+                                    if(song.paused == true){
+                                                            
+                                                            $('.play-icon').removeClass('fa-play');
+                                                            $('.play-icon').addClass('fa-pause');
+                                                            song.play();
+                                                            }
+                                                        
+                                                        else{
+                                                            
+                                                            $('.play-icon').removeClass('fa-pause');
+                                                            $('.play-icon').addClass('fa-play');
+                                                            song.pause();
+                                                            }
+            
+            
+        }
             
         //jQuery Code for validating user-name and displaying welcome message
         
@@ -94,43 +116,18 @@
 
             });
                 
-                //jQuery code to play and pause the song, and pause-play icon changes accordingly.
+                //jQuery code to play and pause the song, when the user clicks on the Play button.
         
                $('.play-icon').on('click',function(){
-                                                         var song = document.querySelector('audio');
-                                                          
-                                if(song.paused == true){
-                                                            
-                                                            $('.play-icon').removeClass('fa-play');
-                                                            $('.play-icon').addClass('fa-pause');
-                                                            song.play();
-                                                       }
-                                                  else {
-                                                            
-                                                            $('.play-icon').removeClass('fa-pause');
-                                                            $('.play-icon').addClass('fa-play');
-                                                            song.pause();
-                                                        }
-               }); 
+                                                        togglesong();
+                }); 
         
                 
                 //Function to play or pause the song using spacebar and the P key.
                 function playsong(e){
                                       if((e.keyCode == 32)||(e.keyCode == 80))
-                                     {
-                                          var song = document.querySelector('audio');
-                                            if(song.paused == true)
-                                            {
-                                                                    $('.play-icon').removeClass('fa-play');
-                                                                    $('.play-icon').addClass('fa-pause');
-                                                                    song.play();
-                                            }
-                                            else
-                                            {
-                                                $('.play-icon').removeClass('fa-pause');
-                                                $('.play-icon').addClass('fa-play');
-                                                song.pause(); 
-                                            }
+                                      {
+                                          togglesong();
                                       }
                             
                                     }
