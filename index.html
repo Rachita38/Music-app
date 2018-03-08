@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title> Song App</title>
+    
     <link rel="stylesheet" type="text/css" href="main.css">
+    
+    <!-- Style sheet to add audio control icons-->
     <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
 </head>
 
@@ -66,7 +69,9 @@
             
                 if(name.length > 2) {
                                         var message = "Welcome, " +  name;
-                                        //Displaying welcome message with class user-name
+                                        
+                                        //Displaying welcome message in the main class
+                                        
                                         $('.main .user-name').text(message);
                                         $('.welcome-screen').addClass('hidden');
                                         $('.main').removeClass('hidden');
@@ -107,7 +112,24 @@
                                                         }
                }); 
         
-        
+                
+                //jQuery code to play and pause the song using spacebar.
+                $('body').on('keypress',function(event){
+                                                              if (event.keyCode == 32){
+                                                                  var song = document.querySelector('audio');
+                                                                if(song.paused == true) {
+                                                                                            $('.play-icon').removeClass('fa-play');
+                                                                                            $('.play-icon').addClass('fa-pause');
+                                                                                            song.play();
+                                                                }
+                                                                else {
+                                                                        $('.play-icon').removeClass('fa-pause');
+                                                                        $('.play-icon').addClass('fa-play');
+                                                                        song.pause(); 
+                                                                }
+                                                              }
+                                                        }); 
+    
     </script>
 </body>
 </html>
