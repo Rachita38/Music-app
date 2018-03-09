@@ -48,10 +48,23 @@
             </section>
             
             <footer>
+            
             <div>
+                
+                <div class="progress-wrapper">
+                        <span class="time-elapsed"> </span>
+                        <div class="player-progress">
+                            <div class="progress-filled"> </div>
+                        </div>
+                        <span class="song-duration"></span>
+                </div>
+                
                 <div class="player-buttons">
                     <i class="fa fa-play clickable play-icon"></i>
                 </div>
+                
+                 
+            
             </div>
            </footer>
             
@@ -62,6 +75,19 @@
     
     <script>
         
+        function updateCurrentTime(){
+                                          var song = document.querySelector('audio');
+
+                                              var currentTime = song.currentTime;
+                                              var duration = song.duration;
+                                              
+                                             // Get the elements with the class and set the text
+                                              
+                                              $('.time-elapsed').text(currentTime);
+                                              $('.song-duration').text(duration);
+                                    }
+
+       
         //Created a Function to play and pause the song, and the play/pause icon changes accordingly.
         function togglesong(){
              
@@ -80,7 +106,10 @@
                                                             $('.play-icon').addClass('fa-play');
                                                             song.pause();
                                                             }
-            
+            updateCurrentTime();
+            setInterval(function(){
+                                updateCurrentTime();
+                                },1000);
             
         }
             
