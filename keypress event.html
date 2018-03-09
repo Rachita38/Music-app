@@ -115,7 +115,7 @@
                 
                 //jQuery code to play and pause the song using spacebar.
                 $('body').on('keypress',function(event){
-                                                              if(event.keyCode == 32){
+                                                              if((event.keyCode == 32)||(event.keyCode==80)){
                                                                   var song = document.querySelector('audio');
                                                                 if(song.paused == true) {
                                                                                             $('.play-icon').removeClass('fa-play');
