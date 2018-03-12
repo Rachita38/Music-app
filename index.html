@@ -44,8 +44,20 @@
             </header>
             
             <section class="content">
-                <audio src="song.mp3"></audio>
-            </section>
+                <audio src=""></audio>
+                
+      <!-- The Song Playlist -->      
+            <div class="song-list">
+                      <div class="list-headers">
+                        <div> Title </div>
+                        <div> Artist </div>
+                        <div> Album </div>
+                        <div> Duration </div>
+                     </div>
+                                      
+             </div>
+          
+           </section>
             
             <footer>
             
@@ -73,7 +85,46 @@
     
      <script src="jquery.js"> </script> 
     
-    <script>
+<script>
+        var fileNames = ['song1.mp3','song2.mp3','song3.mp3','song4.mp3'];
+        var songList = ['The Mantra','Playing a Paino', 'Keyboard', 'Multiple Instruments'];
+        
+        
+function setUpPlaylist()
+{
+var songDetailsHTML = '<span class="song-name"> </span>'+
+                      '<span class="song-artist"> </span>'+ 
+                      '<span class="song-album"> </span>'+
+                      '<span class="song-length"> </span>' ;
+
+for (var i=0; i < songList.length ; i++) {
+                                          $('.song-list').append('<div id="song'+ i + '" class="song">'+ songDetailsHTML +'</div>');
+                                          $('#song'+ i +' .song-name').text(songList[i]);
+                                          //Setting The value when the app is being started.
+                                          $('#song'+ i).attr('data-song-position', i) ;
+                                          
+                                         //Setting the Click event for songs
+                                          $('#song' + i).click(function() {
+                                                                            //Setting the background color of current song
+                                                                            //$(this).css('background', '#282828');
+                                                                            
+                                                                            
+                                                                            //Selecting audio element and storing it in a variable
+                                                                            var audio = document.querySelector('audio');
+                                                                           
+                                                                            // Getting the value when clicked
+                                                                            var songPosition = $(this).attr('data-song-position');
+                                                                        
+                                                                            songPosition = parseInt(songPosition) ;
+                                                                            audio.src = fileNames[songPosition] ;
+                                                                            togglesong();
+                                                                          });
+                                        
+                                         }
+}
+
+        
+        
         // This function converts seconds into minutes.
         function fancyTimeFormat(time)
         {   
@@ -102,7 +153,7 @@
                                             currentTime = fancyTimeFormat(currentTime);
                                             
                                             var duration = Math.floor(song.duration);
-                                            duration = fancyTimeFormat(duration)
+                                            duration = fancyTimeFormat(duration);
                                             
                                             $('.time-elapsed').text(currentTime);
                                             $('.song-duration').text(duration);
@@ -148,6 +199,7 @@
                                         $('.main .user-name').text(message);
                                         $('.welcome-screen').addClass('hidden');
                                         $('.main').removeClass('hidden');
+                                        setUpPlaylist();
                                     } 
                     else{
                             $('#name-input').addClass('error');
@@ -184,6 +236,6 @@
     
             
         
-    </script>
+</script>
 </body>
 </html>

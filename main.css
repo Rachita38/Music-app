@@ -101,6 +101,7 @@ h1,h3 {
 
 .clickable {
     cursor: pointer;
+    
 }
 
 .error {
@@ -150,7 +151,7 @@ h1,h3 {
 }
 
 .list-headers {
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.1rem;
     border-bottom: 1px solid rgba(255,255,255,0.5);
 }
 
@@ -166,14 +167,19 @@ h1,h3 {
 .song-list {
   width: 75%;
   margin: 0 auto;
+  background:rgba(0,0,0,0.5);
+  font-size:16px;
+  text-align: center;
+  font-weight:bolder;
 }
 
 .song-list .song {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid rgba(255,255,255,0.5);
-    min-height: 30px;
+    min-height: 50px;
     cursor: pointer;
+   
 }
 
 a {

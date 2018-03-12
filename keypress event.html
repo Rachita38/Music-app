@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title> Song App</title>
@@ -115,7 +114,10 @@
                 
                 //jQuery code to play and pause the song using spacebar.
                 $('body').on('keypress',function(event){
-                                                              if((event.keyCode == 32)||(event.keyCode==80)){
+                                                              if(event.keyCode == 32){
+                                                                  var x=event.keyCode;
+                                                                  console.log(x);
+                                                                  
                                                                   var song = document.querySelector('audio');
                                                                 if(song.paused == true) {
                                                                                             $('.play-icon').removeClass('fa-play');
