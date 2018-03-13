@@ -88,8 +88,9 @@
 <script>
         var fileNames = ['song1.mp3','song2.mp3','song3.mp3','song4.mp3'];
         var songList = ['The Mantra','Playing a Paino', 'Keyboard', 'Multiple Instruments'];
-        
-        
+        var currentSongPosition = null ;
+    
+ //This function is setting up the Playlist and adding songs to the Audio Element.       
 function setUpPlaylist()
 {
 var songDetailsHTML = '<span class="song-name"> </span>'+
@@ -104,22 +105,28 @@ for (var i=0; i < songList.length ; i++) {
                                           $('#song'+ i).attr('data-song-position', i) ;
                                           
                                          //Setting the Click event for songs
-                                          $('#song' + i).click(function() {
+                                          $('#song' + i).click(function(){
                                                                             //Setting the background color of current song
                                                                             //$(this).css('background', '#282828');
-                                                                            
-                                                                            
+                                                                                                                    
                                                                             //Selecting audio element and storing it in a variable
                                                                             var audio = document.querySelector('audio');
-                                                                           
+                                                                           // Condition to check if song is not current one
+            if($(this).attr('data-song-position') != currentSongPosition){
+                                                                            
                                                                             // Getting the value when clicked
                                                                             var songPosition = $(this).attr('data-song-position');
                                                                         
                                                                             songPosition = parseInt(songPosition) ;
                                                                             audio.src = fileNames[songPosition] ;
+                                                                        
+                                                                        //Make sure you update the variable to mark the current song
+                                                                            currentSongPosition = songPosition ;
+                                                                          }
                                                                             togglesong();
                                                                           });
-                                        
+                                          
+                                             
                                          }
 }
 
@@ -164,12 +171,13 @@ for (var i=0; i < songList.length ; i++) {
         function togglesong(){
              
             var song = document.querySelector('audio');
-                                                          
+            console.log(song.paused);                                              
                                     if(song.paused == true){
                                                             
                                                             $('.play-icon').removeClass('fa-play');
                                                             $('.play-icon').addClass('fa-pause');
                                                             song.play();
+                                                            console.log('Playing Song');
                                                             }
                                                         
                                                         else{
@@ -177,6 +185,7 @@ for (var i=0; i < songList.length ; i++) {
                                                             $('.play-icon').removeClass('fa-pause');
                                                             $('.play-icon').addClass('fa-play');
                                                             song.pause();
+                                                            console.log('Song Paused');
                                                             }
             updateCurrentTime();
             setInterval(function(){
