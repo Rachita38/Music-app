@@ -1,6 +1,36 @@
-var fileNames = ['song1.mp3','song2.mp3','song3.mp3','song4.mp3'];
+//var fileNames = ['song1.mp3','song2.mp3','song3.mp3','song4.mp3'];
 var songList = ['The Mantra','Playing a Paino', 'Keyboard', 'Multiple Instruments'];
 var currentSongPosition = null ;
+
+var songs = [
+{   
+  'name': 'The Mantra',
+  'artist': 'Miss A.',
+  'album': 'You & Me',
+  'duration': '2:56',
+ 'fileName': 'song1.mp3'
+},
+{
+  'name': 'Playing a Paino',
+  'artist': 'Mr. B',
+  'album': 'Soothing',
+  'duration': '3:15',
+  'fileName': 'song2.mp3'
+},
+{
+  'name': 'KeyBoard',
+  'artist': 'Miss C',
+  'album': 'Fun',
+  'duration': '2:34',
+  'fileName': 'song3.mp3'
+},
+{
+  'name': 'Instrumental',
+  'artist': 'Miss D',
+  'album': 'Rocking',
+  'duration': '2:29',
+  'fileName': 'song4.mp3'
+}];
 
 //This function is setting up the Playlist and adding songs to the Audio Element.       
 function setUpPlaylist()
@@ -10,11 +40,21 @@ var songDetailsHTML = '<span class="song-name"> </span>'+
                       '<span class="song-album"> </span>'+
                       '<span class="song-length"> </span>' ;
 
-for (var i=0; i < songList.length ; i++) {
-                                          $('.song-list').append('<div id="song'+ i + '" class="song">'+ songDetailsHTML +'</div>');
-                                          $('#song'+ i +' .song-name').text(songList[i]);
+for (var i=0; i < songs.length ; i++) {
+                                         var song = songs[i];  
+                                        $('.song-list').append('<div id="song'+ i + '" class="song">'+ songDetailsHTML +'</div>');
+                                          
+                                           //$('#song'+ i +' .song-name').text(songList[i]);
                                           //Setting The value when the app is being started.
-                                          $('#song'+ i).attr('data-song-position', i) ;
+                                            
+                                           
+
+                                            $('#song'+ i + ' .song-name').text(song.name);
+                                            $('#song'+ i + ' .song-artist').text(song.artist);
+                                            $('#song'+ i + ' .song-album').text(song.album);
+                                            $('#song'+ i + ' .song-length').text(song.duration);
+
+                                            $('#song'+ i).attr('data-song-position', i) ;
                                           
                                          //Setting the Click event for songs
                                           $('#song' + i).click(function(){
@@ -30,7 +70,7 @@ for (var i=0; i < songList.length ; i++) {
                                                                             var songPosition = $(this).attr('data-song-position');
                                                                         
                                                                             songPosition = parseInt(songPosition) ;
-                                                                            audio.src = fileNames[songPosition] ;
+                                                                            audio.src = songs[songPosition].fileName ;
                                                                         
                                                                         //Make sure you update the variable to mark the current song
                                                                             currentSongPosition = songPosition ;
