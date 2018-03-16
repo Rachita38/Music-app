@@ -1,6 +1,3 @@
-//var fileNames = ['song1.mp3','song2.mp3','song3.mp3','song4.mp3'];
-var songList = ['The Mantra','Playing a Paino', 'Keyboard', 'Multiple Instruments'];
-var currentSongPosition = null ;
 
 var songs = [
 {   
@@ -8,29 +5,44 @@ var songs = [
   'artist': 'Miss A.',
   'album': 'You & Me',
   'duration': '2:56',
- 'fileName': 'song1.mp3'
+ 'fileName': 'song1.mp3',
+    'image':'song1.jpg'
 },
 {
   'name': 'Playing a Paino',
   'artist': 'Mr. B',
   'album': 'Soothing',
   'duration': '3:15',
-  'fileName': 'song2.mp3'
+  'fileName': 'song2.mp3',
+    'image':'song2.jpg'
 },
 {
   'name': 'KeyBoard',
   'artist': 'Miss C',
   'album': 'Fun',
   'duration': '2:34',
-  'fileName': 'song3.mp3'
+  'fileName': 'song3.mp3',
+    'image':'song3.jpg'
 },
 {
   'name': 'Instrumental',
   'artist': 'Miss D',
   'album': 'Rocking',
   'duration': '2:29',
-  'fileName': 'song4.mp3'
+  'fileName': 'song4.mp3',
+    'image':'song4.jpg'
 }];
+
+var currentSongPosition = null ;
+addSongNameClickEvent(0);
+
+function addSongNameClickEvent(songPosition) {
+  var songObj = songs[songPosition] ;
+  $('.current-song-image').attr('src','img/' + songObj.image) ;
+  $('.current-song-name').text(songObj.name) ;
+  $('.current-song-album').text(songObj.album) ;
+}
+
 
 //This function is setting up the Playlist and adding songs to the Audio Element.       
 function setUpPlaylist()
@@ -43,12 +55,7 @@ var songDetailsHTML = '<span class="song-name"> </span>'+
 for (var i=0; i < songs.length ; i++) {
                                          var song = songs[i];  
                                         $('.song-list').append('<div id="song'+ i + '" class="song">'+ songDetailsHTML +'</div>');
-                                          
-                                           //$('#song'+ i +' .song-name').text(songList[i]);
-                                          //Setting The value when the app is being started.
-                                            
-                                           
-
+                                                                                                                     
                                             $('#song'+ i + ' .song-name').text(song.name);
                                             $('#song'+ i + ' .song-artist').text(song.artist);
                                             $('#song'+ i + ' .song-album').text(song.album);
@@ -58,9 +65,7 @@ for (var i=0; i < songs.length ; i++) {
                                           
                                          //Setting the Click event for songs
                                           $('#song' + i).click(function(){
-                                                                            //Setting the background color of current song
-                                                                            //$(this).css('background', '#282828');
-                                                                                                                    
+                                                                                                                                    
                                                                             //Selecting audio element and storing it in a variable
                                                                             var audio = document.querySelector('audio');
                                                                            // Condition to check if song is not current one
@@ -74,6 +79,8 @@ for (var i=0; i < songs.length ; i++) {
                                                                         
                                                                         //Make sure you update the variable to mark the current song
                                                                             currentSongPosition = songPosition ;
+                                                                             addSongNameClickEvent(songPosition);
+                   
                                                                           }
                                                                             togglesong();
                                                                           });
