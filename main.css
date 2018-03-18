@@ -271,3 +271,9 @@ content {
 .current-song-album {
     margin-top: 0.4rem;
 }
+
+.totalsongs{
+    font-size:25px;
+    font-style:oblique;
+    text-align:center;
+}

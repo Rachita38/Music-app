@@ -35,6 +35,7 @@ var songs = [
 
 var currentSongPosition = null ;
 addSongNameClickEvent(0);
+var totalsongs = songs.length;
 
 function addSongNameClickEvent(songPosition) {
   var songObj = songs[songPosition] ;
@@ -51,6 +52,8 @@ var songDetailsHTML = '<span class="song-name"> </span>'+
                       '<span class="song-artist"> </span>'+ 
                       '<span class="song-album"> </span>'+
                       '<span class="song-length"> </span>' ;
+    
+    $('.totalsongs').text('Total no of Songs in the Playlist: ' + totalsongs);
 
 for (var i=0; i < songs.length ; i++) {
                                          var song = songs[i];  
