@@ -155,13 +155,16 @@ function togglesong()
             
 }
             
-//jQuery Code for validating user-name and displaying welcome message
+//jQuery Code for validating user-name & Password and displaying welcome message
         
             $('.welcome-screen button').on('click', function(){
             
                 var name = $('#name-input').val();
+                var pass = $('#password-input').val();
             
                 if(name.length > 2) {
+                                       if(pass.length > 8)
+                                       {
                                         var message = "Welcome, " +  name;
                                         
                                         //Displaying welcome message in the main class
@@ -170,11 +173,16 @@ function togglesong()
                                         $('.welcome-screen').addClass('hidden');
                                         $('.main').removeClass('hidden');
                                         setUpPlaylist();
-                                    } 
-                    else{
-                            $('#name-input').addClass('error');
-                        }
-            
+                                       } 
+                                   else{
+                                            $('#password-input').addClass('error');
+                                           alert('Enter Password with more than 8 Characters');
+                                        }
+                                  }
+                 else{
+                                            $('#name-input').addClass('error');
+                                           alert('Enter Name with more than 2 Characters');
+                    }
            });
         
         
