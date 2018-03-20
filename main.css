@@ -277,3 +277,10 @@ content {
     font-style:oblique;
     text-align:center;
 }
+.playall
+{
+    border:1px solid darkgoldenrod;
+    background-color: darkgoldenrod;
+    width:200px;
+    font-size:20px;
+}

@@ -92,7 +92,28 @@ for (var i=0; i < songs.length ; i++) {
                                          }
 }
 
+//Function to play all the songs, when Playall button is Clicked.
+$('.playall').on('click',function(){
+            
+                                 var i=0;
+            if(i!=songs.length)
+            {
+                                 var audio = new Audio();
+                                 console.log(i)
+                                 audio.src = songs[i].fileName ;                                      
+                                 audio.play(); 
+                
+audio.addEventListener('ended',function(){
+                                               i = ++i < songs.length ? i : 0;
+                                                console.log(i)
+                                 });
+    
+            }
         
+            
+});
+    
+    
         
 // This function converts seconds into minutes.
 function fancyTimeFormat(time)
@@ -127,6 +148,7 @@ function updateCurrentTime()
                                             
                                             $('.time-elapsed').text(currentTime);
                                             $('.song-duration').text(duration);
+                                            
 }
 
        
@@ -195,8 +217,7 @@ $('#logout').on('click',function(){
 
                 $('.welcome-screen').removeClass('hidden');
                 $('.main').addClass('hidden');
-
-
+                
             });
                 
 //jQuery code to play and pause the song, when the user clicks on the Play button.
