@@ -96,7 +96,7 @@ for (var i=0; i < songs.length ; i++) {
 $('.playall').on('click',function(){
             
                                  var i=0;
-            if(i!=songs.length)
+            if(i<(songs.length-1))
             {
                                  var audio = new Audio();
                                  console.log(i)
@@ -104,12 +104,17 @@ $('.playall').on('click',function(){
                                  audio.play(); 
                 
 audio.addEventListener('ended',function(){
-                                               i = ++i < songs.length ? i : 0;
+                                               i = ++i;
+                                                audio.src = songs[i].fileName ; 
+                                                audio.play(); 
                                                 console.log(i)
                                  });
     
             }
-        
+        else{
+               
+               audio.stop();
+           }
             
 });
     
